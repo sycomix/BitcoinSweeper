@@ -1,0 +1,14 @@
+module.exports = {
+  zeromq: {
+    address: 'tcp://127.0.0.1:28332'
+  },
+
+  jsonrpc: {
+    rpchost: '127.0.0.1',
+    rpcport: 8332,
+    rpcuser: 'test',
+    rpcpassword: 'test',
+  },
+
+  address: ''
+}

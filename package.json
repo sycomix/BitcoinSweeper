@@ -1,0 +1,22 @@
+{
+  "name": "bitcoin-sweeper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "start.js",
+  "dependencies": {
+    "bitcoind-client": "^2.2.11",
+    "bitcoinjs-lib": "^4.0.2",
+    "bn.js": "^4.11.8",
+    "node-fetch": "^2.3.0",
+    "pushtx": "^1.0.1",
+    "tiny-secp256k1": "^1.0.1",
+    "zeromq": "^5.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node start.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
