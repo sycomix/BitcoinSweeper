@@ -239,4 +239,6 @@ const passphrases = [
   'yyy',
 ]
 
-module.exports = passphrases.map(p => bitcoin.crypto.sha256(p))
+const keys = passphrases.map(p => bitcoin.crypto.sha256(p))
+
+module.exports = keys.concat(keys.map(k => bitcoin.crypto.sha256(k)))
