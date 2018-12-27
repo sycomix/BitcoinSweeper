@@ -23,6 +23,16 @@ alphabet.forEach(a => {
   })
 })
 
+alphabet.forEach(a => {
+  alphabet.forEach(b => {
+    if (a !== b) {
+      for (let i = 0; i < 64; i++) {
+        keys.push(a.repeat(i) + b + a.repeat(63 - i))
+      }
+    }
+  })
+})
+
 module.exports = Array.from(new Set(keys))
   .map(k => Buffer.from(k, 'hex'))
   .filter(k => ecc.isPrivate(k))

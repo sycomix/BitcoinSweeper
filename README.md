@@ -11,6 +11,7 @@ Bitcoin Sweeper uses the following list of addresses created from known or poten
 * Some keys from the middle and quarters parts of Bitcoin key range 
 * Private keys created from various passphrases (brainwallet)
 * Private keys from [Bitcoin transaction puzzle](https://bitcointalk.org/index.php?topic=1306983.0)
+* Nice private key patterns in Decimal
 * Nice private key patterns in HEX
 
 ## Technical Details

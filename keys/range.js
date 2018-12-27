@@ -11,7 +11,7 @@ function range(start, n, incr) {
   const key = start.clone()
 
   for (let i = 0; i < n; i++, key.iaddn(incr)) {
-    keys.push(key.toArrayLike(Buffer, 'be', 32))
+    keys.push(key.toBuffer('be', 32))
   }
 }
 

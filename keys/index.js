@@ -20,6 +20,7 @@ console.log('Generating keys...')
 const s = new Date()
 
 addKeys(require('./range'))
+addKeys(require('./numbers'))
 addKeys(require('./patterns'))
 addKeys(require('./brainwallet'))
 addKeys(require('./passwords'))
