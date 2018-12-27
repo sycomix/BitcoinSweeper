@@ -53,6 +53,10 @@ function onTransaction(hex) {
 
       console.log('Sweeping %s (%s)...', addr, pair.privateKey.toString('hex'))
 
+      if (pair.privateKey.original) {
+        console.log('Original: %s', pair.privateKey.original)
+      }
+
       spend({hash, n, value, pair})
     }
   })

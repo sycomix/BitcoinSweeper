@@ -32,7 +32,7 @@ for (let i = 0, str = ''; str.length <= 78; i++) {
 }
 
 module.exports = keys
-  .map(k => new BN(k))
+  .map(k => Object.assign(new BN(k), {original: k}))
   .filter(k => k.byteLength() <= 32)
-  .map(k => new BN(k).toBuffer('be', 32))
+  .map(k => Object.assign(k.toBuffer('be', 32), {original: k.original}))
   .filter(k => ecc.isPrivate(k))

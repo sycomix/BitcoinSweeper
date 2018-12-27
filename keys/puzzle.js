@@ -59,4 +59,4 @@ const keys = [
   '00000000000000000000000000000000000000000000000002c675b852189a21',
 ]
 
-module.exports = keys.map(k => Buffer.from(k, 'hex'))
+module.exports = keys.map((k, i) => Object.assign(Buffer.from(k, 'hex'), {original: 'puzzle #' + i}))

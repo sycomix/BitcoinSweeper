@@ -239,6 +239,17 @@ const passphrases = [
   'yyy',
 ]
 
-const keys = passphrases.map(p => bitcoin.crypto.sha256(p))
+function hash(str) {
+  return Object.assign(
+    bitcoin.crypto.sha256(str),
+    {
+      original: str instanceof Buffer ?
+        str.toString('hex') :
+        str
+    }
+  )
+}
 
-module.exports = keys.concat(keys.map(k => bitcoin.crypto.sha256(k)))
+const keys = passphrases.map(p => hash(p))
+
+module.exports = keys.concat(keys.map(k => hash(k)))

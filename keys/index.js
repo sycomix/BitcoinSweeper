@@ -17,6 +17,7 @@ function addKey(key, compressed) {
 }
 
 console.log('Generating keys...')
+
 const s = new Date()
 
 addKeys(require('./range'))
