@@ -47,13 +47,13 @@ function onTransaction(hex) {
       return
     }
 
-    if (keys[addr] !== undefined) {
+    if (addr in keys) {
       const hash = tx.getId().toString('hex')
       const pair = keys[addr]
 
       console.log('Sweeping %s (%s)...', addr, pair.privateKey.toString('hex'))
 
-      if (pair.privateKey.original) {
+      if ('original' in pair.privateKey) {
         console.log('Original: %s', pair.privateKey.original)
       }
 
