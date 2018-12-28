@@ -4,9 +4,12 @@ const zmq = require('zeromq')
 const {createCall} = require('bitcoind-client')
 const bitcoin = require('bitcoinjs-lib')
 const {pushtx} = require('pushtx')
+const randomBytes = require('randombytes')
 const keys = require('./keys')
 const config = require('./config')
 
+const args = process.argv.slice(2)
+const testing = args.length && args[0] === 'test'
 const call = createCall(config.jsonrpc)
 
 function connect() {
@@ -106,6 +109,24 @@ function sendTx(hex) {
   })))
 }
 
+function test() {
+  const key = Buffer.from('0000000000000000000000000000000000000000000000000000000000000001', 'hex')
+  const pair = bitcoin.ECPair.fromPrivateKey(key)
+  const {address} = bitcoin.payments.p2pkh({pubkey: pair.publicKey})
+  const txb = new bitcoin.TransactionBuilder()
+
+  txb.setVersion(1)
+  txb.addInput(randomBytes(32).toString('hex'), 0)
+  txb.addOutput(address, 1000000)
+  txb.sign(0, pair)
+
+  onTransaction(txb.build().toHex())
+}
+
 console.log('Collecting coins to: %s', config.address)
 
 connect()
+
+if (testing) {
+  test()
+}

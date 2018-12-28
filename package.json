@@ -9,6 +9,7 @@
     "bn.js": "^4.11.8",
     "node-fetch": "^2.3.0",
     "pushtx": "^1.0.1",
+    "randombytes": "^2.0.6",
     "tiny-secp256k1": "^1.0.1",
     "zeromq": "^5.1.0"
   },
@@ -17,7 +18,7 @@
     "start": "node start.js",
     "build": "docker build --rm -t bitcoin-sweeper .",
     "run": "docker run --init -it bitcoin-sweeper",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node start.js test"
   },
   "author": "",
   "license": "ISC"
