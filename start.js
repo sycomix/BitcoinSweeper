@@ -57,7 +57,7 @@ function onTransaction(hex) {
       console.log('Sweeping %s (%s)...', addr, pair.privateKey.toString('hex'))
 
       if ('original' in pair.privateKey) {
-        console.log('Original: %s', pair.privateKey.original)
+        console.log('Original: %s', pair.privateKey.original ? pair.privateKey.original : '(empty)')
       }
 
       spend({hash, n, value, pair})
@@ -77,7 +77,7 @@ function spend(data) {
   } else if (value >= 1000) {
     fee = 1000
   } else {
-    return
+    fee = 0
   }
 
   txb.setVersion(1)
